@@ -168,7 +168,8 @@ int main(int argc, char *argv[])
     sprites = vita2d_load_PNG_file("app0:assets.png");
     vita2d_set_vblank_wait(1);
     float d = 1;
-    int oldstate = -1, oldscore = 0;
+    int oldstate = -1;
+    long long oldscore = 0;
     bool old_butt_flag = butt_flag;
     SceUID fs = sceIoOpen("ux0:data/flappy_bird.save", SCE_O_RDONLY | SCE_O_CREAT,0777);
 	int size = sceIoLseek32(fs, 0, SCE_SEEK_END);
@@ -205,6 +206,7 @@ int main(int argc, char *argv[])
             SceUID fs = sceIoOpen("ux0:data/flappy_bird.save", SCE_O_WRONLY | SCE_O_CREAT, 0777);
             if (fs >= 0) {
                 char buff[64];
+                for (int i=0;i<64;i++) buff[i] = '\0';
                 itoa_m(get_record(), buff);
                 sceIoWrite(fs, buff, 64);
                 sceIoClose(fs);

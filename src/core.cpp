@@ -27,22 +27,22 @@ void load(int score)
     record = score;
 }
 
-int save()
+long long save()
 {
     return record;
 }
 
-int get_state()
+long long get_state()
 {
     return state;
 }
 
-int get_score()
+long long get_score()
 {
     return score;
 }
 
-int get_record()
+long long get_record()
 {
     return record;
 }

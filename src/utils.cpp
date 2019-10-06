@@ -8,22 +8,23 @@ long long get_time()
     return duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
 }
 
-int atoi_m(const char* c)
+long long atoi_m(const char* c)
 {
-	int tmp = 0;
+	long long tmp = 0;
+	while (*c || *c - 48 < 10 && *c - 48 >= 0) c++;
 	while (*c)
-    {
-		tmp *= 10; 
-        if (*c-48<10 && *c-48>=0) 
-            tmp+=(*(c++) - 48); 
-        else
-            return 0;
-    }
+	{
+		tmp *= 10;
+		if (*c - 48 < 10 && *c - 48 >= 0)
+			tmp += (*(c++) - 48);
+		else
+			return tmp/10;
+	}
 	return tmp;
 }
-void itoa_m(int n, char* buff)
+void itoa_m(long long n, char* buff)
 {
-	int tmp = n, len = 1;
+	long long tmp = n, len = 1;
 	while (tmp / 10 != 0) tmp /= 10, len++;
 	buff += len - 1;
 	*(buff + 1) = '\0';

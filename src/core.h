@@ -31,10 +31,10 @@ extern bird BIRD;
 
 bool get_day();
 void load(int score);
-int save();
-int get_score();
-int get_state();
-int get_record();
+long long save();
+long long get_score();
+long long get_state();
+long long get_record();
 float get_distance();
 void update(float d = 1);
 void tap(int t = 1);
