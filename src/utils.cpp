@@ -11,7 +11,7 @@ long long get_time()
 long long atoi_m(const char* c)
 {
 	long long tmp = 0;
-	while (*c || *c - 48 < 10 && *c - 48 >= 0) c++;
+	while (*c && !(*c - 48 < 10 && *c - 48 >= 0)) c++;
 	while (*c)
 	{
 		tmp *= 10;
