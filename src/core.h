@@ -30,7 +30,7 @@ extern pipe pipes[3];
 extern bird BIRD;
 
 bool get_day();
-void load(int score);
+void load(long long score);
 long long save();
 long long get_score();
 long long get_state();

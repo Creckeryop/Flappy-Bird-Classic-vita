@@ -22,7 +22,7 @@ bool get_day()
     return day;
 }
 
-void load(int score)
+void load(long long score)
 {
     record = score;
 }
