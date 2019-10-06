@@ -155,11 +155,11 @@ int main(int argc, char *argv[])
 	SoLoud::Wav swooshing;
 	SoLoud::Wav wing;
     gSoloud.init();
-	die.load("app0:sounds/sfx_die.wav");
-	hit.load("app0:sounds/sfx_hit.wav");
-	point.load("app0:sounds/sfx_point.wav");
-	swooshing.load("app0:sounds/sfx_swooshing.wav");
-	wing.load("app0:sounds/sfx_wing.wav");
+	die.load("app0:sounds/sfx_die.ogg");
+	hit.load("app0:sounds/sfx_hit.ogg");
+	point.load("app0:sounds/sfx_point.ogg");
+	swooshing.load("app0:sounds/sfx_swooshing.ogg");
+	wing.load("app0:sounds/sfx_wing.ogg");
     srand(get_time() & 0xFFFFFFFF);
 	SceCtrlData pad, oldpad;
 	vita2d_init();

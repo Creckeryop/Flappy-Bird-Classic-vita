@@ -64,11 +64,11 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} ${PROJECT_NAME}.self
   FILE sce_sys/livearea/contents/startup.png sce_sys/livearea/contents/startup.png
   FILE sce_sys/livearea/contents/template.xml sce_sys/livearea/contents/template.xml
   
-  FILE sounds/sfx_hit.wav sounds/sfx_hit.wav
-  FILE sounds/sfx_die.wav sounds/sfx_die.wav
-  FILE sounds/sfx_point.wav sounds/sfx_point.wav
-  FILE sounds/sfx_wing.wav sounds/sfx_wing.wav
-  FILE sounds/sfx_swooshing.wav sounds/sfx_swooshing.wav
+  FILE sounds/sfx_hit.ogg sounds/sfx_hit.ogg
+  FILE sounds/sfx_die.ogg sounds/sfx_die.ogg
+  FILE sounds/sfx_point.ogg sounds/sfx_point.ogg
+  FILE sounds/sfx_wing.ogg sounds/sfx_wing.ogg
+  FILE sounds/sfx_swooshing.ogg sounds/sfx_swooshing.ogg
 
   FILE assets.png assets.png
 )
