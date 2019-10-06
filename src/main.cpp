@@ -207,7 +207,7 @@ int main(int argc, char *argv[])
             if (fs >= 0) {
                 char buff[64];
                 for (int i=0;i<64;i++) buff[i] = '\0';
-                itoa_m(get_record(), buff);
+                itoa_m(get_score()>get_record()?get_score():get_record(), buff);
                 sceIoWrite(fs, buff, 64);
                 sceIoClose(fs);
                 d_t = get_time();

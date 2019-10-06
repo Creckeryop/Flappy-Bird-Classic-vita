@@ -2,8 +2,8 @@
 #include "core.h"
 #include <cmath>
 bool day = true;
-int score = 0;
-int record = 0;
+long long score = 0;
+long long record = 0;
 int state = state_menu;
 float distance = 0;
 float distance_offset = 0;
