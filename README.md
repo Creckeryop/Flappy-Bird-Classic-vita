@@ -5,8 +5,7 @@ Simple flappy bird clone for PS Vita<br>
 
 ## Features:
 * Saves
-* Nothing else, yes i am dumb
-<br>(you can make sure that I'm dumb by copying the entire description from the previous release, and creating game with assets from original game, waiting for advises for 90 degrees rotation)
+* Good time
 ## How to play:
 * <kbd>Cross or Tap</kbd> - Jump?
 ## Building
