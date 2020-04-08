@@ -199,7 +199,13 @@ int main(int argc, char *argv[])
         butt_flag = hold(SCE_CTRL_CROSS);
         butt_flag|=(get_state()==state_menu && touch.reportNum > 0 && touch.report[0].x/2>336+144-52 && touch.report[0].y/2>16+256-29+10 && touch.report[0].x/2<336+144+52 && touch.report[0].y/2<16+256+29+10);
         butt_flag|=(get_state()==state_death && touch.reportNum > 0 && touch.report[0].x/2>336+144-52 && touch.report[0].y/2>16+256-29+110 && touch.report[0].x/2<336+144+52 && touch.report[0].y/2<16+256+29+110);
-        if (!butt_flag && touch.reportNum > 0 && touch.report[0].x > 0) old_butt_flag = false;
+        butt_flag|=(get_state()==state_menu && touch.reportNum > 1 && touch.report[1].x/2>336+144-52 && touch.report[1].y/2>16+256-29+10 && touch.report[1].x/2<336+144+52 && touch.report[1].y/2<16+256+29+10);
+        butt_flag|=(get_state()==state_death && touch.reportNum > 1 && touch.report[1].x/2>336+144-52 && touch.report[1].y/2>16+256-29+110 && touch.report[1].x/2<336+144+52 && touch.report[1].y/2<16+256+29+110);
+        bool pressed = !(pad.buttons & SCE_CTRL_CROSS) && oldpad.buttons & SCE_CTRL_CROSS;
+        pressed |= (get_state()==state_menu && touch.reportNum < 1 && oldtouch.reportNum == 1 && oldtouch.report[0].x/2>336+144-52 && oldtouch.report[0].y/2>16+256-29+10 && oldtouch.report[0].x/2<336+144+52 && oldtouch.report[0].y/2<16+256+29+10);
+        pressed |= (get_state()==state_death && touch.reportNum < 1 && oldtouch.reportNum == 1 && oldtouch.report[0].x/2>336+144-52 && oldtouch.report[0].y/2>16+256-29+110 && oldtouch.report[0].x/2<336+144+52 && oldtouch.report[0].y/2<16+256+29+110);
+        pressed |= (get_state()==state_menu && touch.reportNum < 2 && oldtouch.reportNum == 2 && oldtouch.report[1].x/2>336+144-52 && oldtouch.report[1].y/2>16+256-29+10 && oldtouch.report[1].x/2<336+144+52 && oldtouch.report[1].y/2<16+256+29+10);
+        pressed |= (get_state()==state_death && touch.reportNum < 2 && oldtouch.reportNum == 2 && oldtouch.report[1].x/2>336+144-52 && oldtouch.report[1].y/2>16+256-29+110 && oldtouch.report[1].x/2<336+144+52 && oldtouch.report[1].y/2<16+256+29+110);
         if (blink == 1)
         {
             gSoloud.play(hit);
@@ -256,7 +262,7 @@ int main(int argc, char *argv[])
             if (oldstate != state_death)
                 blink = 1;
             case state_menu:
-            if (old_butt_flag && !butt_flag)
+            if (pressed)
             {
                 if (get_time() - death_timer>2600 && get_state() == state_death || get_state()==state_menu)
                 {
@@ -269,7 +275,7 @@ int main(int argc, char *argv[])
                 tap_fade -= d*0.05f;
                 if (tap_fade < 0)
                     tap_fade = 0;
-                if ((click(SCE_CTRL_CROSS) || touch.reportNum > 0 && oldtouch.reportNum == 0))
+                if ((click(SCE_CTRL_CROSS) || touch.reportNum > oldtouch.reportNum))
                 {
                     tap(1);
                     gSoloud.play(wing);
@@ -279,7 +285,7 @@ int main(int argc, char *argv[])
                 tap_fade += d*0.05f;
                 if (tap_fade >= 1){
                     tap_fade = 1;
-                    if ((click(SCE_CTRL_CROSS) || touch.reportNum > 0 && oldtouch.reportNum == 0))
+                    if ((click(SCE_CTRL_CROSS) || touch.reportNum > oldtouch.reportNum))
                     {
                         tap(1);
                         gSoloud.play(wing);
